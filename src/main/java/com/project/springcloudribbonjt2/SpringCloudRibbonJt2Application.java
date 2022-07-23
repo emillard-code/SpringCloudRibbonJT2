@@ -26,13 +26,17 @@ public class SpringCloudRibbonJt2Application {
 
     @GetMapping("/invoke")
     public String invokeCharbook() {
+
         return template.getForObject("http://chatbook/chatbook-application/chat" , String.class);
+
     }
 
     @Bean
     @LoadBalanced
     public RestTemplate template() {
+
         return new RestTemplate();
+
     }
 
 }
