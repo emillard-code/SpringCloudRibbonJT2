@@ -1,10 +1,12 @@
 package com.project.springcloudribbonjt2;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,6 +19,14 @@ public class SpringCloudRibbonJt2Application {
 
         SpringApplication.run(SpringCloudRibbonJt2Application.class, args);
 
+    }
+
+    @Autowired
+    private RestTemplate template;
+
+    @GetMapping("/invoke")
+    public String invokeCharbook() {
+        return template.getForObject("http://chatbook/chatbook-application/chat" , String.class);
     }
 
     @Bean
