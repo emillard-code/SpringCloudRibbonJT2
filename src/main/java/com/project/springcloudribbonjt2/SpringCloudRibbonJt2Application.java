@@ -12,17 +12,17 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @RestController
-@RibbonClient(name = "chatbook", configuration = RibbonConfiguration.class)
+@RibbonClient(name = "chatbook") // @RibbonClient(name = "chatbook", configuration = RibbonConfiguration.class)
 public class SpringCloudRibbonJt2Application {
+
+    @Autowired
+    private RestTemplate template;
 
     public static void main(String[] args) {
 
         SpringApplication.run(SpringCloudRibbonJt2Application.class, args);
 
     }
-
-    @Autowired
-    private RestTemplate template;
 
     @GetMapping("/invoke")
     public String invokeCharbook() {
