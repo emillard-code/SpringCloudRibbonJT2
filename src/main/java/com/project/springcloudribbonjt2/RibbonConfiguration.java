@@ -15,12 +15,18 @@ public class RibbonConfiguration {
 
     @Bean
     public IPing ribbonPing(IClientConfig config) {
+
         return new PingUrl();
+
     }
 
-    @Bean
-    public IRule ribbonRule(IClientConfig config) {
-        return new AvailabilityFilteringRule();
-    }
+//    // For some reason, the presence of this method causes problems
+//    // with the application being able to find the chatbook applications.
+//    @Bean
+//    public IRule ribbonRule(IClientConfig config) {
+//
+//        return new AvailabilityFilteringRule();
+//
+//    }
 
 }
