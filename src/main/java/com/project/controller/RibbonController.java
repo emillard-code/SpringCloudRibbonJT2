@@ -15,7 +15,7 @@ public class RibbonController {
     private RestTemplate template;
 
     @GetMapping("/invoke")
-    public String invokeCharbook() {
+    public String invokeChatbook() {
 
         return template.getForObject("http://chatbook/chatbook-application/chat", String.class);
 
