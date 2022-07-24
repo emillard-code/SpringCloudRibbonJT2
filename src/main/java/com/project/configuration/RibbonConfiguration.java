@@ -1,4 +1,4 @@
-package com.project.springcloudribbonjt2;
+package com.project.configuration;
 
 import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.AvailabilityFilteringRule;
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 public class RibbonConfiguration {
 
     @Autowired
-    IClientConfig ribbonclient;
+    IClientConfig ribbonClient;
 
     @Bean
     public IPing ribbonPing(IClientConfig config) {
