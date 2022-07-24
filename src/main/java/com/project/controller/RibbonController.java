@@ -23,12 +23,4 @@ public class RibbonController {
 
     }
 
-    @Bean
-    @LoadBalanced
-    public RestTemplate template() {
-
-        return new RestTemplate();
-
-    }
-
 }
